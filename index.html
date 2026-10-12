@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Like button · UI animations</title>
+  <meta name="description" content="A like button printed in two risograph inks: the heart floods with ink, halftone dots burst out and the count rolls like an odometer. Double-tap the print for a big stamp. Plain HTML, CSS and JavaScript.">
+  <meta name="theme-color" content="#fff8f2">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="reel/theme.css">
+  <link rel="stylesheet" href="reel/reel.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo-page">
+    <article class="post" aria-label="Post by misprint.club">
+      <header class="post-head">
+        <span class="avatar" aria-hidden="true">mc</span>
+        <p class="who"><strong>misprint.club</strong><span>Issue 09 · two-ink riso</span></p>
+        <button class="icon-btn" type="button" aria-label="More options">
+          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M144,128a16,16,0,1,1-16-16A16,16,0,0,1,144,128ZM60,112a16,16,0,1,0,16,16A16,16,0,0,0,60,112Zm136,0a16,16,0,1,0,16,16A16,16,0,0,0,196,112Z"/></svg>
+        </button>
+      </header>
+
+      <figure class="art">
+        <svg class="print" viewBox="0 0 360 360" role="img" aria-label="Riso print: a halftone sun rising over two hills, with the word hello">
+          <defs>
+            <pattern id="dot-s" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.5"/></pattern>
+            <pattern id="dot-m" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="2.6"/></pattern>
+            <pattern id="dot-l" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="3.7"/></pattern>
+          </defs>
+          <rect class="ink-skin" width="360" height="360"/>
+          <g class="ink-bridal">
+            <circle cx="236" cy="138" r="96" fill="url(#dot-s)"/>
+            <circle cx="236" cy="138" r="70" fill="url(#dot-m)"/>
+            <circle cx="236" cy="138" r="44" fill="url(#dot-l)"/>
+            <path d="M0 262 C60 214 120 214 178 248 S300 284 360 236 V360 H0 Z" fill="url(#dot-m)"/>
+            <path d="M0 300 C70 262 150 268 214 296 S320 318 360 292 V360 H0 Z"/>
+          </g>
+        </svg>
+        <span class="art-issue" aria-hidden="true">ISSUE 09</span>
+        <span class="art-hello" aria-hidden="true">hello,</span>
+
+        <div class="stamp" aria-hidden="true">
+          <svg class="stamp-ink ink2" viewBox="0 0 256 256"><path d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"/></svg>
+          <svg class="stamp-ink ink1" viewBox="0 0 256 256"><path d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"/></svg>
+        </div>
+      </figure>
+
+      <div class="actions">
+        <button class="like" type="button" aria-pressed="false" aria-label="Like">
+          <span class="heart">
+            <svg class="heart-ink ink2" viewBox="0 0 256 256" aria-hidden="true"><path d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"/></svg>
+            <svg class="heart-ink ink1" viewBox="0 0 256 256" aria-hidden="true"><path d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"/></svg>
+            <svg class="heart-line" viewBox="0 0 256 256" aria-hidden="true"><path d="M178,36c-20.09,0-37.92,7.93-50,21.56C115.92,43.93,98.09,36,78,36a66.08,66.08,0,0,0-66,66c0,72.34,105.81,130.14,110.31,132.57a12,12,0,0,0,11.38,0C138.19,232.14,244,174.34,244,102A66.08,66.08,0,0,0,178,36Zm-5.49,142.36A328.69,328.69,0,0,1,128,210.16a328.69,328.69,0,0,1-44.51-31.8C61.82,159.77,36,131.42,36,102A42,42,0,0,1,78,60c17.8,0,32.7,9.4,38.89,24.54a12,12,0,0,0,22.22,0C145.3,69.4,160.2,60,178,60a42,42,0,0,1,42,42C220,131.42,194.18,159.77,172.51,178.36Z"/></svg>
+          </span>
+        </button>
+        <button class="icon-btn" type="button" aria-label="Comment">
+          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,0,0,31.85,177.23L21,209.66A20,20,0,0,0,46.34,235l32.43-10.81A108,108,0,1,0,128,20Zm0,192a84,84,0,0,1-42.06-11.27,12,12,0,0,0-6-1.62,12.1,12.1,0,0,0-3.8.62l-29.79,9.93,9.93-29.79a12,12,0,0,0-1-9.81A84,84,0,1,1,128,212Z"/></svg>
+        </button>
+        <button class="icon-btn" type="button" aria-label="Share">
+          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M230.14,25.86a20,20,0,0,0-19.57-5.11l-.22.07L18.44,79a20,20,0,0,0-3.06,37.25L99,157l40.71,83.65a19.81,19.81,0,0,0,18,11.38c.57,0,1.15,0,1.73-.07A19.82,19.82,0,0,0,177,237.56L235.18,45.65a1.42,1.42,0,0,0,.07-.22A20,20,0,0,0,230.14,25.86ZM156.91,221.07l-34.37-70.64,46-45.95a12,12,0,0,0-17-17l-46,46L34.93,99.09,210,46Z"/></svg>
+        </button>
+        <button class="icon-btn save" type="button" aria-label="Save">
+          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M184,28H72A20,20,0,0,0,52,48V224a12,12,0,0,0,18.36,10.18l57.63-36,57.65,36A12,12,0,0,0,204,224V48A20,20,0,0,0,184,28Zm-4,174.35-45.65-28.53a12,12,0,0,0-12.72,0L76,202.35V52H180Z"/></svg>
+        </button>
+      </div>
+
+      <p class="likes"><span class="odometer" aria-hidden="true"></span><span class="visually-hidden count-text">1,203</span> likes</p>
+      <p class="caption"><strong>misprint.club</strong> Two inks, one press, zero undo. Double-tap the print if it made you smile.</p>
+      <p class="time">2 hours ago</p>
+    </article>
+
+    <p class="visually-hidden" role="status" aria-live="polite"></p>
+  </main>
+
+  <nav class="toolbar" aria-label="Demo links">
+    <a href="https://www.instagram.com/arslanagayev.dev/">More animations</a>
+    <a href="?reel">Reel mode</a>
+    <a href="https://github.com/arslanagayev/like-button-animation">Source</a>
+  </nav>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
